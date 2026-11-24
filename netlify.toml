@@ -1,0 +1,35 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[dev]
+  command = "npm run dev"
+  targetPort = 47231
+  port = 8888
+  framework = "#custom"
+
+# En `netlify dev` el estado vive en .stanza-data/state.json (en producción, Netlify Blobs).
+[context.dev.environment]
+  STANZA_STORAGE = "file"
+
+# Cabeceras de seguridad para todo el sitio.
+# El hash autoriza solo el script en línea de index.html (agrega la clase "js").
+# Si ese script cambia, actualiza el hash (npm test lo verifica).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'sha256-ZnYJX5ypMaaAhxxWhSEjbMkhO2A9yPmbzEQH3LFaITA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; frame-src https://open.spotify.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+
+[[headers]]
+  for = "/stanza/*"
+  [headers.values]
+    Cache-Control = "no-cache"

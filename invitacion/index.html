@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="Invitación privada. La Notte di Ninna. Borrador."
+    />
+    <title>La Notte di Ninna</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <style>
+      html,
+      body {
+        background: #100d0b;
+        color: #f4ecde;
+      }
+      html.js:not(.is-advanced) {
+        overflow: hidden;
+      }
+      html.js .carta {
+        position: fixed;
+        inset: 0;
+        z-index: 30;
+        background: #100d0b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="deco-bg" aria-hidden="true"></div>
+    <a class="skip" href="#relato">Saltar a la invitación</a>
+    <div class="progress" aria-hidden="true"><span id="progreso"></span></div>
+    <div class="audio-bar is-paused" id="audio-bar" aria-expanded="true">
+      <button
+        type="button"
+        class="audio-toggle"
+        id="audio-toggle"
+        aria-pressed="false"
+        aria-label="Reproducir la música"
+      >
+        <span class="audio-mark" aria-hidden="true"></span>
+      </button>
+      <div class="audio-copy">
+        <p class="audio-title">The Sicilian Pastorale</p>
+        <div
+          class="audio-line"
+          id="audio-line"
+          role="slider"
+          tabindex="0"
+          aria-label="Avance de la música"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <span id="audio-progress"></span>
+        </div>
+      </div>
+    </div>
+    <audio id="musica" preload="auto" src="/media/pastorale.mp3"></audio>
+    <p class="folio" aria-hidden="true">LA NOTTE DI NINNA</p>
+    <p class="folio folio-right" aria-hidden="true">21 · 11 · 2026</p>
+
+    <main>
+      <section id="apertura" class="carta" aria-labelledby="sello-titulo">
+        <article class="card invite-card">
+          <div class="corners" aria-hidden="true">
+            <img class="c tr" src="/ornaments/corner.svg" alt="" />
+            <img class="c tl" src="/ornaments/corner.svg" alt="" />
+            <img class="c br" src="/ornaments/corner.svg" alt="" />
+            <img class="c bl" src="/ornaments/corner.svg" alt="" />
+          </div>
+          <div class="seal" id="sello">
+            <img class="medallion" src="/ornaments/medallion.svg" alt="" />
+            <p class="hairline" aria-hidden="true"></p>
+            <p class="seal-name" id="sello-titulo">
+              <span class="brand-mark">
+                <img class="brand-logo" src="/logo-la-notte-di-ninna.svg" alt="La Notte di Ninna" width="595" height="187" />
+              </span>
+            </p>
+            <p class="seal-note" lang="it">XXXVIII · Cosa Nostra</p>
+            <button
+              type="button"
+              class="btn"
+              id="abrir"
+              aria-expanded="false"
+              aria-controls="transicion"
+            >
+              Abrir la invitación
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <section class="prologue" id="transicion" aria-labelledby="titulo">
+        <h2 id="transicion-titulo" class="sr-only">La sala se abre</h2>
+        <div class="stage" id="escenario">
+          <img
+            class="stage-poster"
+            id="escena-poster"
+            src="/media/escena-poster.webp"
+            alt="Un vaso de whisky con hielo sobre la mesa, antes de que se abra el salón."
+            width="900"
+            height="1600"
+            decoding="async"
+          />
+          <video
+            id="escena-video"
+            muted
+            playsinline
+            preload="auto"
+            disablepictureinpicture
+            disableremoteplayback
+            tabindex="-1"
+            aria-label="Escena del vaso de whisky al salón. Se mira una sola vez."
+          ></video>
+          <img
+            class="stage-still"
+            id="escena-still"
+            src="/media/cena-900.webp"
+            alt=""
+            width="900"
+            height="1269"
+            decoding="async"
+          />
+          <div class="stage-copy">
+            <p class="kicker">
+              HAY INVITACIONES QUE<br />NO SE HACEN PÚBLICAS.
+            </p>
+            <div class="stage-title">
+              <p class="whisper">ESTA ES UNA DE ELLAS.</p>
+              <h1 id="titulo" tabindex="-1">
+                <span class="display">LA NOTTE</span>
+                <span class="script" lang="it">di Ninna</span>
+              </h1>
+              <p class="roman">XXXVIII · Cosa Nostra</p>
+            </div>
+            <div class="stage-bottom">
+              <a class="desliza" href="#relato">Desliza</a>
+              <p id="estado-escena" class="sr-only" aria-live="polite"></p>
+              <div class="stage-controls">
+                <button type="button" class="btn btn-text" id="reproducir-escena" hidden>
+                  Reproducir una vez
+                </button>
+                <button type="button" class="btn btn-text" id="saltar-escena">Saltar</button>
+                <button type="button" class="btn btn-text" id="repetir-escena" hidden>
+                  Ver de nuevo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="relato" tabindex="-1">
+        <figure class="mesa-rosa reveal">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="/media/mesa-rosa-900.webp 900w, /media/mesa-rosa-1600.webp 1600w"
+              sizes="100vw"
+            />
+            <img
+              src="/media/mesa-rosa-1400.jpg"
+              alt="Mesa de madera oscura con una rosa roja, un puñal, pétalos, un vaso de whisky, pasta y un fajo de billetes."
+              width="2752"
+              height="1536"
+              decoding="async"
+              loading="lazy"
+            />
+          </picture>
+        </figure>
+        <section class="panel panel-lead panel-editorial panel-step panel-prose reveal" id="seleccion">
+          <p class="index">01</p>
+          <p class="phrase">
+            Por orden de la famiglia, has sido seleccionado para formar parte de
+            una reunión privada y muy especial.
+          </p>
+        </section>
+        <div class="divider reveal" aria-hidden="true">
+          <img src="/ornaments/diamante-anidado.svg" alt="" width="1735" height="270" />
+        </div>
+
+        <section class="panel panel-editorial panel-step panel-prose reveal" id="ocasion">
+          <p class="index">02</p>
+          <p class="phrase phrase-mid">
+            No es una noche cualquiera. Es una ocasión reservada para personas de
+            confianza, miembros distinguidos y aliados de esta casa.
+          </p>
+        </section>
+        <div class="divider reveal" aria-hidden="true">
+          <img src="/ornaments/diamante-anidado.svg" alt="" width="1735" height="270" />
+        </div>
+
+        <section class="panel panel-editorial panel-step panel-prose reveal" id="lugar">
+          <p class="index">03</p>
+          <p class="phrase">
+            Tu presencia ha sido solicitada. Tu lugar está reservado.
+          </p>
+        </section>
+        <div class="divider reveal" aria-hidden="true">
+          <img src="/ornaments/diamante-anidado.svg" alt="" width="1735" height="270" />
+        </div>
+
+        <section class="panel panel-date panel-step reveal" id="hora">
+          <p class="index">04</p>
+          <div class="date-mark">
+            <img class="date-burst" src="/ornaments/sunburst.svg" alt="" />
+            <time class="monument" datetime="2026-11-21T21:00:00-03:00">
+              <span class="dow">SÁBADO</span>
+              <span class="num">21</span>
+              <span class="mon">DE NOVIEMBRE</span>
+            </time>
+          </div>
+          <p class="hour">21:00 HRS.</p>
+        </section>
+        <div class="divider reveal" aria-hidden="true">
+          <img src="/ornaments/diamante-anidado.svg" alt="" width="1735" height="270" />
+        </div>
+
+        <section class="panel panel-editorial panel-step reveal" id="vestimenta">
+          <p class="index">05</p>
+          <div class="plate">
+            <p class="dress-label">DRESS CODE: Italian Mafia Style</p>
+            <p class="hairline" aria-hidden="true"></p>
+            <p class="phrase phrase-small">
+              Elegancia, carácter y actitud de famiglia. La vestimenta temática es
+              sugerida, pero no excluyente.
+            </p>
+          </div>
+        </section>
+        <div class="divider reveal" aria-hidden="true">
+          <img src="/ornaments/diamante-anidado.svg" alt="" width="1735" height="270" />
+        </div>
+
+        <section class="panel panel-editorial panel-step panel-prose reveal" id="umbral">
+          <p class="index">06</p>
+          <p class="phrase phrase-quiet">
+            Algunos encuentros son inolvidables. Otros, simplemente, no deben
+            salir de esta habitación.
+          </p>
+        </section>
+
+        <section id="escena-final" class="finale" aria-labelledby="cierre-titulo">
+          <figure class="room reveal">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="/media/cierre-900.webp 900w, /media/cierre-1600.webp 1600w"
+                sizes="100vw"
+              />
+              <img
+                src="/media/cierre-1400.jpg"
+                alt="La mesa de la noche: Donna Ninna al centro, entre los suyos, bajo el candelabro del salón."
+                width="3875"
+                height="5463"
+                decoding="async"
+                loading="lazy"
+              />
+            </picture>
+          </figure>
+
+          <article class="card plate finale-plate reveal">
+            <div class="corners" aria-hidden="true">
+              <img class="c tr" src="/ornaments/corner.svg" alt="" />
+              <img class="c tl" src="/ornaments/corner.svg" alt="" />
+              <img class="c br" src="/ornaments/corner.svg" alt="" />
+              <img class="c bl" src="/ornaments/corner.svg" alt="" />
+            </div>
+            <h2 id="cierre-titulo" class="final-title">LA NOTTE DI NINNA</h2>
+            <p class="roman final-roman">XXXVIII · Cosa Nostra</p>
+            <p class="date-line">
+              <time datetime="2026-11-21T21:00:00-03:00">SÁBADO 21 DE NOVIEMBRE</time>
+            </p>
+            <p class="hour hour-small">21:00 HRS.</p>
+            <p class="venue-line">Aldebarán 0847 · Puente Alto</p>
+            <p class="rsvp-line">RSVP · CONFIRMA TU ASISTENCIA</p>
+            <button
+              type="button"
+              class="btn btn-solid"
+              id="rsvp"
+              aria-describedby="rsvp-notice"
+            >
+              CONFIRMAR ASISTENCIA
+            </button>
+            <p class="notice" id="rsvp-notice" tabindex="-1">
+              Se abre WhatsApp con el mensaje de la casa. Agrega tu nombre y
+              envíalo para confirmar tu lugar.
+            </p>
+            <p class="closing" lang="it">La famiglia ti aspetta.</p>
+            <button
+              type="button"
+              class="btn btn-lettera is-sealed"
+              id="lettera-abrir"
+              aria-haspopup="dialog"
+              aria-controls="lettera"
+            >
+              <span class="porta-mark">
+                <svg class="sobre" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                  <rect x="7" y="13" width="34" height="22" />
+                  <path d="M7 14.2 24 26.5 41 14.2" />
+                  <circle class="lacre" cx="24" cy="26.2" r="5.4" />
+                  <path class="lacre-n" d="M21.7 28.7v-5.2l4.6 5.2v-5.2" />
+                </svg>
+              </span>
+              <span class="lettera-copy">
+                <span class="lettera-title" lang="it">La Lettera</span>
+                <span class="lettera-state" id="lettera-estado">Lacrada hasta el sábado, 12:00</span>
+              </span>
+            </button>
+            <button
+              type="button"
+              class="btn btn-stanza"
+              id="stanza-abrir"
+              aria-haspopup="dialog"
+              aria-controls="stanza"
+            >
+              <span class="porta-mark">
+                <svg class="candelabro" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                  <path d="M15 37.5h18M17.5 37.5v2h13v-2M20.5 34.5h7" />
+                  <path d="M24 34.5V17" />
+                  <path d="M24 24.5H16.5V31M24 24.5h7.5V31" />
+                  <path d="M16.5 31v-5.2M24 17V11.5M31.5 31v-5.2" />
+                  <path class="flame" d="M16.5 25.8c.9-2.2 1.5-3 0-4.8-1.5 1.8-.9 2.6 0 4.8z" />
+                  <path class="flame" d="M24 11.5c.9-2.2 1.5-3 0-4.8-1.5 1.8-.9 2.6 0 4.8z" />
+                  <path class="flame" d="M31.5 25.8c.9-2.2 1.5-3 0-4.8-1.5 1.8-.9 2.6 0 4.8z" />
+                </svg>
+              </span>
+              <span class="lettera-copy">
+                <span class="lettera-title">Acceso a «La Stanza»</span>
+                <span class="lettera-state" id="stanza-estado">Cerrada hasta el sábado, 21:00</span>
+              </span>
+            </button>
+          </article>
+
+          <figure class="signet reveal" id="retrato">
+            <img
+              src="/media/jefa-900.webp"
+              alt="Donna Ninna, de cabello rojo, con abrigo de piel y una copa de whisky, bajo una luz dorada."
+              width="900"
+              height="1200"
+              decoding="async"
+              loading="lazy"
+            />
+            <figcaption>
+              <p class="donna" lang="it">DONNA NINNA</p>
+              <p class="anni" lang="it">38 anni di potere.</p>
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="playlist reveal" aria-labelledby="lista-titulo">
+          <article class="playlist-card">
+            <div class="corners" aria-hidden="true">
+              <img class="c tr" src="/ornaments/corner.svg" alt="" />
+              <img class="c tl" src="/ornaments/corner.svg" alt="" />
+              <img class="c br" src="/ornaments/corner.svg" alt="" />
+              <img class="c bl" src="/ornaments/corner.svg" alt="" />
+            </div>
+            <p class="playlist-kicker" id="lista-titulo">La lista de la casa</p>
+            <p class="hairline" aria-hidden="true"></p>
+            <p class="playlist-invite">
+              Si tienes una canción para esta noche, agrégala.
+            </p>
+            <div class="playlist-frame">
+              <iframe
+                title="Lista de Spotify de La Notte di Ninna. Ábrela para agregar una canción."
+                src="https://open.spotify.com/embed/playlist/7y9PKDAPqdYmONSv4WaYTF?utm_source=generator&theme=0&si=fa6c96c437b54d98"
+                width="100%"
+                height="152"
+                loading="lazy"
+                allowfullscreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              ></iframe>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+    <dialog class="stanza" id="stanza" aria-labelledby="stanza-titulo">
+      <div class="stanza-sheet card">
+        <div class="corners" aria-hidden="true">
+          <img class="c tr" src="/ornaments/corner.svg" alt="" />
+          <img class="c tl" src="/ornaments/corner.svg" alt="" />
+          <img class="c br" src="/ornaments/corner.svg" alt="" />
+          <img class="c bl" src="/ornaments/corner.svg" alt="" />
+        </div>
+        <div class="die" aria-hidden="true">
+          <div class="die-spin">
+            <div class="die-cube">
+              <span class="face p1"></span>
+              <span class="face p2"></span>
+              <span class="face p3"></span>
+              <span class="face p4"></span>
+              <span class="face p5"></span>
+              <span class="face p6"></span>
+            </div>
+          </div>
+        </div>
+        <p class="stanza-kicker">La Stanza</p>
+        <h2 id="stanza-titulo">La Stanza está cerrada.</h2>
+        <p class="hairline" aria-hidden="true"></p>
+        <p class="stanza-body">
+          Las puertas se abren el sábado 21 de noviembre a las 21:00. Ni un
+          minuto antes.
+        </p>
+        <p class="stanza-closing" lang="it">La famiglia ti aspetta.</p>
+        <a class="btn btn-solid" id="stanza-entrar" href="/" hidden>Entrar a La Stanza</a>
+        <button type="button" class="btn btn-solid" id="stanza-cerrar">Capito.</button>
+      </div>
+    </dialog>
+    <dialog class="stanza lettera" id="lettera" aria-labelledby="lettera-titulo">
+      <div class="stanza-sheet card lettera-sheet">
+        <div class="corners" aria-hidden="true">
+          <img class="c tr" src="/ornaments/corner.svg" alt="" />
+          <img class="c tl" src="/ornaments/corner.svg" alt="" />
+          <img class="c br" src="/ornaments/corner.svg" alt="" />
+          <img class="c bl" src="/ornaments/corner.svg" alt="" />
+        </div>
+        <p class="stanza-kicker" lang="it">La Lettera</p>
+        <h2 id="lettera-titulo">La carta sigue lacrada.</h2>
+        <p class="hairline" aria-hidden="true"></p>
+        <div class="stanza-body lettera-body" id="lettera-cuerpo">
+          <p>El lacre cede el sábado 21 de noviembre a las 12:00.</p>
+        </div>
+        <p class="stanza-closing lettera-firma" id="lettera-firma" hidden></p>
+        <button type="button" class="btn btn-solid" id="lettera-cerrar">Capito.</button>
+      </div>
+    </dialog>
+    <footer class="reveal">
+      <button type="button" class="btn btn-text" id="volver-escena">
+        Ver la escena de nuevo
+      </button>
+      <p lang="it">Solo per la famiglia.</p>
+    </footer>
+    <svg class="grain" aria-hidden="true" focusable="false">
+      <filter id="grano">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.8"
+          numOctaves="2"
+          stitchTiles="stitch"
+        />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#grano)" />
+    </svg>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

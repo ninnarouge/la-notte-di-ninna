@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#100d0b" />
+    <title>Pantalla grande · La Stanza</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="stanza-page page-pantalla">
+    <div class="st-bg" aria-hidden="true"><i class="st-bg-rays"></i><i class="st-bg-frame"></i></div>
+    <svg class="grain" aria-hidden="true" focusable="false">
+      <filter id="grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" /></filter>
+      <rect width="100%" height="100%" filter="url(#grano)" />
+    </svg>
+    <main id="app">
+      <div class="screen-boot" role="status" aria-live="polite" aria-busy="true">
+        <p class="screen-boot-kicker">La Notte di Ninna</p>
+        <div class="screen-boot-mark" aria-hidden="true"><span></span></div>
+        <p class="screen-boot-line" aria-hidden="true"><i></i></p>
+        <p class="screen-boot-text">Encendiendo las velas…</p>
+      </div>
+    </main>
+    <noscript><p class="st-sealed">Esta página necesita JavaScript.</p></noscript>
+    <script type="module" src="/src/stanza/pantalla.ts"></script>
+  </body>
+</html>

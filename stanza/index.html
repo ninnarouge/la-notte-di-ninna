@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#100d0b" />
+    <title>La Stanza · La Notte di Ninna</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="stanza-page">
+    <div class="st-bg" aria-hidden="true"><i class="st-bg-rays"></i></div>
+    <svg class="grain" aria-hidden="true" focusable="false">
+      <filter id="grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" /></filter>
+      <rect width="100%" height="100%" filter="url(#grano)" />
+    </svg>
+    <header class="st-mast">
+      <img class="medallion" src="/ornaments/medallion.svg" alt="" width="72" height="142" />
+      <p class="seal-name">
+        <span class="brand-mark">
+          <img class="brand-logo" src="/logo-la-notte-di-ninna.svg" alt="La Notte di Ninna" width="595" height="187" />
+        </span>
+      </p>
+      <h1 class="final-title">La Stanza</h1>
+      <p class="seal-note" lang="it">Il Sigillo Rubato</p>
+      <a class="st-back st-invite" href="/invitacion/">Ver invitación</a>
+    </header>
+    <div class="divider st-divider" aria-hidden="true">
+      <img src="/ornaments/diamante-anidado.svg" alt="" width="1735" height="270" />
+    </div>
+    <main id="app" class="st-wrap">
+      <p class="st-sealed">La casa está encendiendo las velas…</p>
+    </main>
+    <noscript><p class="st-sealed">La Stanza necesita JavaScript para abrir sus puertas.</p></noscript>
+    <footer class="st-foot">
+      <p lang="it">Solo per la famiglia.</p>
+      <a class="st-back" href="/invitacion/">Ver invitación</a>
+      <img
+        class="st-foot-mesa"
+        src="/media/mesa-rosa-1600.webp"
+        alt=""
+        width="1600"
+        height="893"
+      />
+    </footer>
+    <i class="st-bg-frame" aria-hidden="true"></i>
+    <script type="module" src="/src/stanza/guest.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1600" fill="none"><defs><linearGradient id="oro-viejo" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#f4e7c4"/><stop offset="0.22" stop-color="#d4bc84"/><stop offset="0.48" stop-color="#8d6838"/><stop offset="0.64" stop-color="#5c4326"/><stop offset="0.82" stop-color="#c6a56d"/><stop offset="1" stop-color="#7a5c34"/></linearGradient></defs>
+  <g id="ala" stroke="url(#oro-viejo)" stroke-linejoin="miter" stroke-linecap="butt">
+    <g stroke-width="1.8">
+      <path d="M26 24V1576M48 24V1576M70 24V1576"/>
+      <path d="M26 168l22 12-22 12M26 430l22 12-22 12M26 740l22 12-22 12M26 1060l22 12-22 12M26 1360l22 12-22 12"/>
+    </g>
+
+    <g stroke-width="1.9">
+      <path d="M108 268A92 92 0 0 0 292 268"/>
+      <path d="M136 268A64 64 0 0 0 264 268"/>
+      <path d="M162 268A38 38 0 0 0 238 268"/>
+      <path d="M136 268C136 168 164 112 200 62C236 112 264 168 264 268"/>
+      <path d="M162 268C162 190 180 146 200 108C220 146 238 190 238 268"/>
+      <path d="M200 268V70M176 268L188 112M224 268L212 112M154 268L172 142M246 268L228 142"/>
+    </g>
+
+    <g stroke-width="1.9">
+      <path d="M308 292A62 62 0 0 0 432 292"/>
+      <path d="M332 292A38 38 0 0 0 408 292"/>
+      <path d="M324 292C324 200 348 150 370 108C392 150 416 200 416 292"/>
+      <path d="M370 292V116M350 292L362 150M390 292L378 150"/>
+    </g>
+
+    <g stroke-width="1.9">
+      <path d="M96 700C96 390 190 268 292 268C370 268 414 330 438 410"/>
+      <path d="M128 700C128 430 204 320 292 318C358 316 396 372 418 444"/>
+    </g>
+
+    <g stroke-width="1.8">
+      <path d="M96 900V640H176V560H256V500H336V620H392V900H336V1000H176V1080H96V900"/>
+      <path d="M120 884V656H190V584H262V528H328V636H372V884H328V980H190V1052H120V884"/>
+      <path d="M116 680L360 900M116 750L300 900M170 650L392 860M230 650L392 800"/>
+    </g>
+
+    <g stroke-width="1.7">
+      <path d="M110 1120L450 1280M110 1180L450 1360M110 1240L450 1440M110 1300L420 1520"/>
+      <path d="M180 1088L450 1210M260 1088L450 1160M340 1120L450 1188"/>
+      <path d="M70 1360L280 1570M150 1300L360 1572M240 1260L430 1574"/>
+    </g>
+
+    <g stroke-width="1.8">
+      <path d="M18 1320Q36 1548 230 1576"/>
+      <path d="M18 1400Q78 1564 340 1588"/>
+      <path d="M18 1480Q130 1576 450 1594"/>
+    </g>
+  </g>
+
+  <use href="#ala" transform="translate(900 0) scale(-1 1)"/>
+
+  <g stroke="url(#oro-viejo)" stroke-linejoin="miter" stroke-linecap="butt">
+    <g stroke-width="1.8">
+      <path d="M450 16V210M434 40V200M466 40V200M418 68V190M482 68V190M404 100V180M496 100V180"/>
+      <path d="M404 214C404 130 426 78 450 28C474 78 496 130 496 214"/>
+      <path d="M422 214C422 150 436 112 450 74C464 112 478 150 478 214"/>
+    </g>
+
+    <g stroke-width="2">
+      <path d="M450 176L470 248V312L506 352V430L542 474V620H498V860H462V1004H438V860H402V620H358V474L394 430V352L430 312V248Z"/>
+      <path d="M450 230L460 276V324L490 358V444L518 480V608H486V844H470V980H430V844H414V608H382V480L410 444V358L440 324V276Z"/>
+      <path d="M450 210V990M434 300V970M466 300V970M418 460V940M482 460V940"/>
+      <path d="M430 312H470M394 430H506M358 620H542M402 860H498"/>
+    </g>
+
+    <g stroke-width="1.8">
+      <path d="M418 1476H482"/>
+      <path d="M430 1476V1572H470V1476"/>
+      <path d="M442 1520V1572M450 1504V1572M458 1520V1572"/>
+      <path d="M418 1476L450 1440L482 1476"/>
+    </g>
+  </g>
+</svg>
